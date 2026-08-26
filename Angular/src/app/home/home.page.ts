@@ -12,17 +12,25 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  pokemon:any = {
-    nome: null,
-    poder: null
-  };
+  alunos: any = [
+    {nome: "Mãe Merenda", email: "nazaretedesco@resident.evil"}
+    {nome: "Jéqui Baiquer", email: "tiodogedeon@resident.evi"}
+  ];
 
-  constructor( 
-    public crudService: CrudService
-  ){ }
+  titulo : string = "Listagem de Aluno"
+  subtitulo : string = "Sistema Integrado de gestão"
 
-  enviar() {
-    this.crudService.insert(this.pokemon, 'pokemons');
+  constructor() {
+    fetch("http://127.0.0.1:8000/aluno/index")
+    .then(resp => resp.json)
+    .then(resp => {
+      this.alunos = resp;
+    })
+    .catch(erro => {
+      console.log(erro);
+    })
+    .finally(()=>{
+      console.log("Requisição Finalizada")
+    })
   }
-
 }
