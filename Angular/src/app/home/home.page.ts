@@ -11,8 +11,20 @@ import { CrudService } from '../services/api.service';
 })
 export class HomePage {
 
+  produtos: any;
+
   constructor( 
     public crudService: CrudService
-  ){ }
+  ){  }
+
+
+  listarProdutos(){
+    this.crudService.get('produtos').subscribe(produtos => {
+      this.produtos = produtos;
+    });
+  }
+
+  
+
 
 }
