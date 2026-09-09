@@ -15,7 +15,7 @@ export class CrudService {
   ) {}
 
   // produção
-  URL = 'https://us-central1-projetoexemplo-e640c.cloudfunctions.net/app';
+  URL = 'http://localhost:8000/api';
 
   // desenvolvimento
   //URL = 'http://127.0.0.1:5001/lionsclube-5885a.cloudfunctions.net/app';
