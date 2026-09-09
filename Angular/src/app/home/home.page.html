@@ -2,18 +2,28 @@
 
     <ion-button color="secondary" (click)="this.listarProdutos()">Buscar produtos</ion-button>
 
-    <ion-list>
-        <ng-container *ngFor="let produto of this.produtos">
-            <ion-item>
-                <ion-label>
-                    <h1>{{ produto.nome }}</h1>
-                    <h3>Preço: {{ produto.preco }}</h3>
-                </ion-label>
-                <ion-icon name="trash-outline" slot="start"></ion-icon>
-                <ion-icon name="create-outline" slot="start"></ion-icon>
-            </ion-item>
-        </ng-container>
-    </ion-list>
+    <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="10" size-lg="8" size-xl="4">
+            <ion-card>
+                <ion-card-content>
+                    <ion-list>
+                        <ng-container *ngFor="let produto of this.produtos">
+                            <ion-item>
+                                <ion-label>
+                                    <h1>{{ produto.nome }}</h1>
+                                    <h3>Preço: {{ produto.preco }}</h3>
+                                </ion-label>
+                                <ion-icon name="trash-outline" slot="end" (click)="this.removerProduto(produto.id)"></ion-icon>
+                                <ion-icon name="create-outline" slot="end"></ion-icon>
+                            </ion-item>
+                        </ng-container>
+                    </ion-list>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+        
+    </ion-row>
+
 
     
     
